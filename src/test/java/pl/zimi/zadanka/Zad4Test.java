@@ -9,7 +9,7 @@ public class Zad4Test {
 
         Zad4 object = new Zad4();
 
-        Assertions.assertEquals("gnirts", object.reverseString("string"));
+        Assertions.assertEquals("blue is sky the", object.reverseString("the sky is blue"));
 
     }
 }
