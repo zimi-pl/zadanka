@@ -13,38 +13,20 @@ public class Zad4 {
     public static String reverseString(String s) {
 
         String[] splitedS = s.split(" ");
-        String[] cleanedS = new String[splitedS.length];
         String sReverse = "";
-        boolean flaga = true;
-        int k = 0;
-        int a = 32;
-        char c = (char)a;
+        boolean flaga = false;
         for (int i = splitedS.length - 1; i >= 0; i--) {
-            if (splitedS[i] != null) {
-                if (splitedS[i] != "") {
-                    if (splitedS[i] != " ") {
-                        if(splitedS[i].charAt(0)!=c) {
-                            System.out.println("splitedS[i]" + splitedS[i].length());
-                            if (flaga == true) {
-                                sReverse += splitedS[i];
-                                flaga = false;
-                            } else {
-                                sReverse += " " + splitedS[i];
-                            }
-                            k++;
-                        }
 
-                    }
+            if (splitedS[i].length() > 0) {
+//            if (true) {     //ten zostawia artefakty na koncu linii
+                if (flaga == true) {
+                    sReverse += " " + splitedS[i];
+                } else {
+                    sReverse += splitedS[i];
+                    flaga = true;
                 }
             }
-
         }
-        int t;
-        for (int m = 0; m < sReverse.length(); m++) {
-            t =sReverse.
-            System.out.print(sReverse.charAt(m)+"="+t+" ");
-        }
-//        System.out.println(sReverse + sReverse.length());
         return sReverse;
     }
 

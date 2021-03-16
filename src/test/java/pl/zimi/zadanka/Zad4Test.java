@@ -23,6 +23,6 @@ public class Zad4Test {
     @Test
     void Helloworld(){
         Zad4 object = new Zad4();
-        Assertions.assertEquals("world hello","  hello world  ");
+        Assertions.assertEquals("world hello",object.reverseString("  hello world  "));
     }
 }
