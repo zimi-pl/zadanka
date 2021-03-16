@@ -12,4 +12,17 @@ public class Zad4Test {
         Assertions.assertEquals("blue is sky the", object.reverseString("the sky is blue"));
 
     }
+    @Test
+    void checkspaces() {
+
+        Zad4 object = new Zad4();
+
+        Assertions.assertEquals("example good a", object.reverseString("a good   example"));
+
+    }
+    @Test
+    void Helloworld(){
+        Zad4 object = new Zad4();
+        Assertions.assertEquals("world hello","  hello world  ");
+    }
 }
