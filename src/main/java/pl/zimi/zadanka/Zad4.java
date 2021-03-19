@@ -10,6 +10,7 @@ source
 https://leetcode.com/problems/reverse-words-in-a-string/
  */
 public class Zad4 {
+
     public static String reverseString(String s) {
 
         String[] splitedS = s.split(" ");
@@ -39,8 +40,7 @@ public class Zad4 {
         myAlist.remove("Quiz");
         System.out.println("Modified ArrayList : " + myAlist);
 
-
-        String sReverse = new String();
+        new ArrayList<>();
         List<String> elements = new ArrayList<>();
         String[] splitedS = s.split(" ");
 //        List <String> bonus = new ArrayList<String>(Arrays.asList(splitedS));
@@ -60,9 +60,12 @@ public class Zad4 {
             }
         }
         Collections.reverse(elements);
+        String sReverse = new String();
+        StringBuilder sb = new StringBuilder();
         for (String words : elements) {
-            sReverse += words + " ";
+//            sReverse += words + " ";
             System.out.println(words);
+            sb.append(words + " ");
         }
 //        sReverse =sReverse.substring(0,sReverse.length()-1);
 //        sReverse = sReverse.trim();
@@ -70,6 +73,8 @@ public class Zad4 {
 
         return sReverse;
     }
+
+
 
     public static String reversechars(String s) {
 
@@ -87,8 +92,11 @@ public class Zad4 {
         Zad4 klasa = new Zad4();
 
         String reverseString = klasa.reverseString("the sky is blue");
+        System.out.println(reverseString);
         reverseString = klasa.reverseString("a good   example");
+        System.out.println(reverseString);
         reverseString = klasa.reverseString("  hello world  ");
+        System.out.println(reverseString);
 
     }
 }

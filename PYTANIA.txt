@@ -9,3 +9,5 @@ boxing i unboxing
  //        elements.removeIf(n->n.contains(""));
          elements.remove("good");
  //        elements.removeAll(Collections.singleton("good"));f
+ regex
+ string dodawanie
