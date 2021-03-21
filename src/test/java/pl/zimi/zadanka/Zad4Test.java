@@ -25,4 +25,9 @@ public class Zad4Test {
         Zad4 object = new Zad4();
         Assertions.assertEquals("world hello",object.reverseString("  hello world  "));
     }
+    @Test
+    void nullString(){
+        Zad4 object = new Zad4();
+        Assertions.assertEquals(null,object.reverseString(null));
+    }
 }

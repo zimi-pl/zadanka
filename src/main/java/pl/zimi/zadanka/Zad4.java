@@ -7,24 +7,26 @@ https://leetcode.com/problems/reverse-words-in-a-string/
  */
 public class Zad4 {
     public static String reverseString(String s) {
+        if (s == null) {
+            return null;
+        }
+        String[] words = s.split(" ");
+        String reversedString = "";
+        for (int i = words.length - 1; i >= 0; i--) {
 
-        String[] splitedS = s.split(" ");
-        String sReverse = "";
-        for (int i = splitedS.length - 1; i >= 0; i--) {
-
-//            if (splitedS[i].length() > 0) {
+//            if (words[i].length() > 0) {
 //                if (flaga) {
-//                    sReverse += " " + splitedS[i];
+//                    reversedString += " " + words[i];
 //                } else {
-//                    sReverse += splitedS[i];
+//                    reversedString += words[i];
 //                    flaga = true;
 //                }
 //
 //            }
-            if (!splitedS[i].equals(""))sReverse +=" "+splitedS[i];
+            if (!words[i].equals("")) reversedString += " " + words[i];
         }
 
-        return sReverse=sReverse.substring(1,sReverse.length());
+        return reversedString = reversedString.substring(1, reversedString.length());
     }
 
     public static void main(String[] args) {
