@@ -4,6 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Zad3Test {
+    @Test
+    void checkZero(){
+        Zad3 object = new Zad3();
+        Assertions.assertEquals(false,object.checkPowerOfTen(0));
+    }
 
     @Test
     void checkOne() {

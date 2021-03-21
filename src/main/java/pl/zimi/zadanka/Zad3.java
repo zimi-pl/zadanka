@@ -2,7 +2,9 @@ package pl.zimi.zadanka;
 
 public class Zad3 {
     public boolean checkPowerOfTen(Integer inputNumber) {
-
+        if (inputNumber.equals(0)) {
+            return false;
+        }
         if (inputNumber.equals(1)) {
             return true;
         }
