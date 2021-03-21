@@ -1,9 +1,5 @@
 package pl.zimi.zadanka;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /*
 source
@@ -19,8 +15,8 @@ public class Zad4 {
 
             if (splitedS[i].length() > 0) {
 //            if (true) {     //ten zostawia artefakty na koncu linii
-                if (flaga == true) {
-                    sReverse += " " + splitedS[i];
+                if (flaga) {
+                    sReverse += " " + splitedS[i];  // it could be done with stringbuilder
                 } else {
                     sReverse += splitedS[i];
                     flaga = true;
@@ -30,6 +26,16 @@ public class Zad4 {
         return sReverse;
     }
 
+    public static void main(String[] args) {
+        System.out.println("main");
+        Zad4 klasa = new Zad4();
+
+        String reverseString = klasa.reverseString("the sky is blue");
+        reverseString = klasa.reverseString("a good   example");
+        reverseString = klasa.reverseString("  hello world  ");
+
+    }
+    /*
     public static String reverseStringPROBLEMY(String s) {
         List<String> myAlist = new ArrayList<String>();
         myAlist.add("Geeks");
@@ -81,14 +87,5 @@ public class Zad4 {
         System.out.println(sReverse);
         return sReverse;
     }
-
-    public static void main(String[] args) {
-        System.out.println("main");
-        Zad4 klasa = new Zad4();
-
-        String reverseString = klasa.reverseString("the sky is blue");
-        reverseString = klasa.reverseString("a good   example");
-        reverseString = klasa.reverseString("  hello world  ");
-
-    }
+*/
 }
