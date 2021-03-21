@@ -30,4 +30,10 @@ public class Zad4Test {
         Zad4 object = new Zad4();
         Assertions.assertEquals(null,object.reverseString(null));
     }
+    @Test
+    void zerolengthstring(){
+        Zad4 object = new Zad4();
+        Assertions.assertEquals("",Zad4.reverseString(""));
+
+    }
 }
