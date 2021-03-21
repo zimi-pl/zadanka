@@ -10,20 +10,21 @@ public class Zad4 {
 
         String[] splitedS = s.split(" ");
         String sReverse = "";
-        boolean flaga = false;
         for (int i = splitedS.length - 1; i >= 0; i--) {
 
-            if (splitedS[i].length() > 0) {
-//            if (true) {     //ten zostawia artefakty na koncu linii
-                if (flaga) {
-                    sReverse += " " + splitedS[i];  // it could be done with stringbuilder
-                } else {
-                    sReverse += splitedS[i];
-                    flaga = true;
-                }
-            }
+//            if (splitedS[i].length() > 0) {
+//                if (flaga) {
+//                    sReverse += " " + splitedS[i];
+//                } else {
+//                    sReverse += splitedS[i];
+//                    flaga = true;
+//                }
+//
+//            }
+            if (!splitedS[i].equals(""))sReverse +=" "+splitedS[i];
         }
-        return sReverse;
+
+        return sReverse=sReverse.substring(1,sReverse.length());
     }
 
     public static void main(String[] args) {
