@@ -41,20 +41,20 @@ public class Zad7 {
 
     public static int intelijMaxDepth(Integer[] inputArray) {
 
-        TreeNode root = CreateTree(new TreeNode(), inputArray, 0);
+        TreeNode root = createTree(new TreeNode(), inputArray, 0);
 
         return maxDepth(root);
     }
 
 
-    public static TreeNode CreateTree(TreeNode tempRoot, Integer[] treeElements, int pointer) {
+    public static TreeNode createTree(TreeNode tempRoot, Integer[] treeElements, int pointer) {
 
         if (pointer >= treeElements.length || treeElements[pointer] == null) return null;
-        else if (tempRoot == null) return CreateTree(new TreeNode(treeElements[pointer]), treeElements, pointer);
+        else if (tempRoot == null) return createTree(new TreeNode(treeElements[pointer]), treeElements, pointer);
 
         return new TreeNode(tempRoot.val,
-                (CreateTree(tempRoot.left, treeElements, 2 * pointer + 1)),
-                CreateTree(tempRoot.right, treeElements, 2 * pointer + 2));
+                (createTree(tempRoot.left, treeElements, 2 * pointer + 1)),
+                createTree(tempRoot.right, treeElements, 2 * pointer + 2));
     }
 
     public static void presentTree(Integer[] treeElements) {
