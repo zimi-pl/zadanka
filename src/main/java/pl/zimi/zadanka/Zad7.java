@@ -27,15 +27,15 @@ public class Zad7 {
 
     public static int maxDepth(TreeNode root) {
 
-        return exploreRoot(root, 0, 0);
+        return exploreTree(root, 0, 0);
     }
 
-    public static int exploreRoot(TreeNode root, int depth, int maxDepth) {
+    public static int exploreTree(TreeNode node, int depth, int maxDepth) {
         depth++;
-        if (root == null) return maxDepth;
-//        System.out.println("node"+root.val+"depth="+depth+"maxDepth="+maxDepth);
-        if (root.left != null) maxDepth = exploreRoot(root.left, depth, maxDepth);
-        if (root.right != null) maxDepth = exploreRoot(root.right, depth, maxDepth);
+        if (node == null) return maxDepth;
+//        System.out.println("node"+node.val+"depth="+depth+"maxDepth="+maxDepth);
+        if (node.left != null) maxDepth = exploreTree(node.left, depth, maxDepth);
+        if (node.right != null) maxDepth = exploreTree(node.right, depth, maxDepth);
         if (depth > maxDepth) maxDepth = depth;
 //        System.out.println("maxDepth="+maxDepth);
         return maxDepth;
