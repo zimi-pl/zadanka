@@ -33,11 +33,9 @@ public class Zad7 {
     public static int exploreTree(TreeNode node, int depth, int maxDepth) {
         depth++;
         if (node == null) return maxDepth;
-//        System.out.println("node"+node.val+"depth="+depth+"maxDepth="+maxDepth);
         if (node.left != null) maxDepth = exploreTree(node.left, depth, maxDepth);
         if (node.right != null) maxDepth = exploreTree(node.right, depth, maxDepth);
         if (depth > maxDepth) maxDepth = depth;
-//        System.out.println("maxDepth="+maxDepth);
         return maxDepth;
     }
 
@@ -108,14 +106,6 @@ public class Zad7 {
     }
 
     public static void main(String[] args) {
-
-//        Zad7 dummy = new Zad7();
-        Integer[] inputArray = {0, 1, 2, null, null, 5, 6};
-        presentTree(inputArray);
-
-//        TreeNode root = null;
-//        root = CreateTree(root, inputArray, 0);
-//        int x = intelijMaxDepth(inputArray);
     }
 
 
