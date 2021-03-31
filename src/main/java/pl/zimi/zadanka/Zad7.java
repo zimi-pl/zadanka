@@ -39,14 +39,6 @@ public class Zad7 {
         return maxDepth;
     }
 
-    public static int intelijMaxDepth(Integer[] inputArray) {
-
-        TreeNode root = createTree(new TreeNode(), inputArray, 0);
-
-        return maxDepth(root);
-    }
-
-
     public static TreeNode createTree(TreeNode tempRoot, Integer[] treeElements, int pointer) {
 
         if (pointer >= treeElements.length || treeElements[pointer] == null) return null;
@@ -59,7 +51,7 @@ public class Zad7 {
 
     public static void presentTree(Integer[] treeElements) {
 
-        List<TreeNode> Tree = new ArrayList<>();
+        List<TreeNode> tree = new ArrayList<>();
         List<Integer[]> levelElements = new ArrayList<>();
         levelElements.add(new Integer[]{treeElements[0]});
 
@@ -93,21 +85,6 @@ public class Zad7 {
         }
         return printTemplateTree(++start, end);
     }
-
-    public static int sumaRekurencja(int n) {
-        if (n > 0) {
-
-            int y = n + sumaRekurencja(n - 1);
-            System.out.println(y);
-            return y;
-        } else {
-            return 0;
-        }
-    }
-
-    public static void main(String[] args) {
-    }
-
 
 }
 
