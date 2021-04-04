@@ -1,9 +1,5 @@
 package pl.zimi.zadanka;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
-
 /**
  * source:
  * https://leetcode.com/problems/climbing-stairs/
@@ -12,46 +8,54 @@ import java.util.TreeSet;
 public class Zad5 {
 
     // rozwiązanie poprawne ale wolne
-    public static int climbStairsTreeStyle(int key, int currentValue, int carry) {
-        if (currentValue == key) {
+    public static int revokeClimbStairsRecurrencyStyle(int lastStairNumber) {
+        return climbStairsRecurrencyStyle(lastStairNumber, 0, 0);
+    }
+
+    private static int climbStairsRecurrencyStyle(int lastStairNumber, int currentValue, int carry) {
+        if (currentValue == lastStairNumber) {
             return ++carry;
         }
-        if (currentValue > key) {
+        if (currentValue > lastStairNumber) {
             return 0;
         } else {
-            return climbStairsTreeStyle(key, currentValue + 1, carry)
-                    + climbStairsTreeStyle(key, currentValue + 2, carry);
+            return climbStairsRecurrencyStyle(lastStairNumber, currentValue + 1, carry)
+                    + climbStairsRecurrencyStyle(lastStairNumber, currentValue + 2, carry);
         }
     }
 
     // rozwiązanie poprawne ale za wolne
-    public static int climbStairs(int key) {
-        if (key > 0) {
-            if (key == 1) {
-                return 1;
-            }
-            if (key == 2) {
-                return 2;
-            }
-            return climbStairs(key - 2) + climbStairs(key - 1);
-        } else {
+    public static int climbStairs(int stairNumber) {
+        if (stairNumber == 0) {
             return 0;
         }
+        if (stairNumber == 1) {
+            return 1;
+        }
+        if (stairNumber == 2) {
+            return 2;
+        }
+        if (stairNumber > 2) {
+            return climbStairs(stairNumber - 2) + climbStairs(stairNumber - 1);
+        }
+        if (stairNumber < 0) {
+            throw new IllegalArgumentException("input variable StairNumber cannot be less than 0");
+        }
+        return 0;
     }
 
     // rozwiazanie przyjete przez leetcode
-    public static int climbStairsQuicker(int key) {
-        if (key == 2) {
+    public static int climbStairsQuicker(int lastStairNumber) {
+        if (lastStairNumber == 2) {
             return 2;
         }
-        if (key == 1) {
+        if (lastStairNumber == 1) {
             return 1;
         }
         int thirdValue = 0;
         int secondValue = 2;
         int firstValue = 1;
-        int iterVal = 3;
-        while (iterVal++ <= key) {
+        for (int iterVal = 3; iterVal <= lastStairNumber; iterVal++) {
             thirdValue = firstValue + secondValue;
             firstValue = secondValue;
             secondValue = thirdValue;

@@ -9,6 +9,11 @@ public class Zad5Test {
         Zad5 object = new Zad5();
         Assertions.assertEquals(0, object.climbStairs(0));
     }
+    @Test
+    void lessThanZero() {
+        Zad5 object = new Zad5();
+        Assertions.assertEquals(-1, object.climbStairs(-1));
+    }
 
     @Test
     void n3() {
@@ -19,7 +24,7 @@ public class Zad5Test {
     @Test
     void n3TreeVersion() {
         Zad5 object = new Zad5();
-        Assertions.assertEquals(3, object.climbStairsTreeStyle(3, 0, 0));
+        Assertions.assertEquals(3, object.revokeClimbStairsRecurrencyStyle(3));
     }
 
     @Test
