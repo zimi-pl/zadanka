@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class Zad8Test {
     @Test
-    void dummyMethood(){
+    void dummyMethod(){
 
     }
 }
