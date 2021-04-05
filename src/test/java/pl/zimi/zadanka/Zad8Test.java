@@ -19,9 +19,9 @@ public class Zad8Test {
     }
     public Zad8.ListNode createListNode(int[] inputNodesList, Zad8.ListNode listNode, int i) {
 
-        if (i != inputNodesList.length) {
+        if (i != inputNodesList.length-1) {
             listNode.val = inputNodesList[i];
-            listNode.next = createListNode(inputNodesList,listNode,++i);
+            return createListNode(inputNodesList,listNode.next,++i);
 
         }
 
