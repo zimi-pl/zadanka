@@ -5,23 +5,13 @@ import org.junit.jupiter.api.Test;
 
 
 public class Zad8Test {
-    /**
-     * public static int revokeMaxDepth(Integer[] inputArray) {
-     * Zad8  test = new Zad8();
-     * TreeNode root = test.createTree(new TreeNode(), inputArray, 0);
-     * return test.maxDepth(root);
-     * }
-     */
     public ListNode revokeCreateListNode(int[] inputNodesList, int headpointer) {
         ListNode listNode = new ListNode(0);
         listNode = createListNode(inputNodesList, listNode, 0);
-//        ListNode tempNode = new ListNode(0);
         ListNode tempNode = listNode;
         while (tempNode.val != headpointer && tempNode.next != null) {
             tempNode = tempNode.next;
         }
-
-
         return tempNode;
 
     }
@@ -36,11 +26,14 @@ public class Zad8Test {
     }
 
     public String printListNode(ListNode listNode) {
-        String listToOutput="";
+        String listToOutput = "";
         listToOutput += listNode.val;
-        while (listNode.next != null) {
-            listToOutput += ','+listNode.val;
+        ListNode tempListNode = listNode;
+        while (tempListNode.next != null) {
+            tempListNode = tempListNode.next;
+            listToOutput += "," + tempListNode.val;
         }
+        System.out.println(listToOutput);
         return listToOutput;
     }
 
@@ -51,13 +44,14 @@ public class Zad8Test {
         ListNode nodeLeetcode = revokeCreateListNode(new int[]{4, 5, 1, 9}, 5);
 
         zad8Obj.deleteNode(node);
-//        po zakonczeniu metody node nie zmienia swojej postaci dalej 4,5,1,9
-
         printListNode(node);
+//        po zakonczeniu metody deleteNode nie zmienia swojej postaci dalej 4,5,1,9
+
         zad8Obj.deleteNodeLeetcode(nodeLeetcode);
-//       ta metoda powoduje zmianę obiektu w sposób "trwały
+        printListNode(nodeLeetcode);
+//      metoda deleteNodeLeetCode powoduje zmianę obiektu w sposób "trwały
 
-        printListNode(node);
+
         Assertions.assertEquals(0, 0);
     }
 }
