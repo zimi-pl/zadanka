@@ -5,30 +5,15 @@ package pl.zimi.zadanka;
  */
 public class Zad8 {
 
+    public void deleteNode(ListNode listNode) {
+        ListNode tempListNode = listNode.next;
+        listNode = tempListNode;
 
-    public class ListNode {
-        int val;
-        ListNode next;
-
-//        ListNode () {}
-        ListNode(int x) {
-            val = x;
-        }
     }
 
-   /* public static TreeNode createTree(TreeNode tempRoot, Integer[] treeElements, int pointer) {
-
-        if (pointer >= treeElements.length || treeElements[pointer] == null) return null;
-        else if (tempRoot == null) return createTree(new TreeNode(treeElements[pointer]), treeElements, pointer);
-
-        return new TreeNode(tempRoot.val,
-                (createTree(tempRoot.left, treeElements, 2 * pointer + 1)),
-                createTree(tempRoot.right, treeElements, 2 * pointer + 2));
-    }*/
-
-
-    public void deleteNode(ListNode Treenode) {
-
+    public void deleteNodeLeetcode(ListNode listNode) {
+        listNode.val = listNode.next.val;
+        listNode.next = listNode.next.next;
     }
 
 
