@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 public class Zad9Test {
 
-    public ListNode revokeCreateListNode(int[] inputNodesList, int headpointer) {
+    public ListNode revokeCreateListNode(int[] inputNodesList) {
         ListNode listNode = new ListNode(0);
         listNode = createListNode(inputNodesList, listNode, 0);
         ListNode tempNode = listNode;
-        while (tempNode.val != headpointer && tempNode.next != null) {
-            tempNode = tempNode.next;
-        }
+//        while (tempNode.val != headpointer && tempNode.next != null) {
+//            tempNode = tempNode.next;
+//        }
         return tempNode;
 
     }
@@ -41,7 +41,7 @@ public class Zad9Test {
     @Test
     void dummyMethodswapairs() {
         Zad9 zad8Obj = new Zad9();
-        ListNode node = revokeCreateListNode(new int[]{1, 2, 3, 4, 5, 6}, 5);
+        ListNode node = revokeCreateListNode(new int[]{1, 2, 3, 4, 5, 6});
 
         printListNode(node);
         Assertions.assertEquals(0, 0);
