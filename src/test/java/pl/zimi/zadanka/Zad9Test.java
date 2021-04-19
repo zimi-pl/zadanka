@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * @see <a href="https://leetcode.com/problems/swap-nodes-in-pairs/">https://leetcode.com/problems/swap-nodes-in-pairs/</a>
+ */
+
 public class Zad9Test {
 
     public ListNode revokeCreateListNode(int[] inputNodesList) {
@@ -17,6 +22,13 @@ public class Zad9Test {
     }
 
     public ListNode createListNode(int[] inputNodesList, ListNode listNode, int i) {
+        if (inputNodesList.length == 0 ) {
+            return null;
+        }
+        if (inputNodesList.length == 1 ) {
+            listNode.val = inputNodesList[i];
+            return listNode;
+        }
         if (i != inputNodesList.length - 1) {
             listNode.val = inputNodesList[i];
             i++;
@@ -37,11 +49,10 @@ public class Zad9Test {
         return listToOutput;
     }
 
-    public ArrayList <Integer> ListNodeToArray(ListNode listNode) {
+    public ArrayList<Integer> ListNodeToArray(ListNode listNode) {
         ArrayList<Integer> array = new ArrayList<>();
         ListNode tempListNode = listNode;
         while (tempListNode != null) {
-
             array.add(tempListNode.val);
             tempListNode = tempListNode.next;
         }
@@ -55,8 +66,30 @@ public class Zad9Test {
         ListNode node = revokeCreateListNode(new int[]{1, 2, 3, 4, 5, 6});
         node = zad9Obj.swapPairs(node);
         ArrayList actualArrayList = ListNodeToArray(node);
-        Integer [] expectedArray = {2,1,4,3,6,5};
-        ArrayList expectedArrayList = new ArrayList <Integer>(Arrays.asList(expectedArray));
-        Assertions.assertEquals(expectedArrayList,actualArrayList);
+        Integer[] expectedArray = {2, 1, 4, 3, 6, 5};
+        ArrayList expectedArrayList = new ArrayList<Integer>(Arrays.asList(expectedArray));
+        Assertions.assertEquals(expectedArrayList, actualArrayList);
+    }
+
+    @Test
+    void testSwapPairsNull() {
+        Zad9 zad9Obj = new Zad9();
+        ListNode node = revokeCreateListNode(new int[]{});
+        node = zad9Obj.swapPairs(node);
+        ArrayList actualArrayList = ListNodeToArray(node);
+        Integer[] expectedArray = {};
+        ArrayList expectedArrayList = new ArrayList<Integer>(Arrays.asList(expectedArray));
+        Assertions.assertEquals(expectedArrayList, actualArrayList);
+    }
+
+    @Test
+    void testSwapPairsOne() {
+        Zad9 zad9Obj = new Zad9();
+        ListNode node = revokeCreateListNode(new int[]{1});
+        node = zad9Obj.swapPairs(node);
+        ArrayList actualArrayList = ListNodeToArray(node);
+        Integer[] expectedArray = {1};
+        ArrayList expectedArrayList = new ArrayList<Integer>(Arrays.asList(expectedArray));
+        Assertions.assertEquals(expectedArrayList, actualArrayList);
     }
 }
