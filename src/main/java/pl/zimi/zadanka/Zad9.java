@@ -10,9 +10,6 @@ public class Zad9 {
         if (listNode.next.next != null) {
             rightRight =swapPairs(listNode.next.next);
         }
-        else {
-//            return null;
-        }
         left.next = rightRight;
         right.next = left;
         listNode = right;
