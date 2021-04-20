@@ -41,19 +41,24 @@ public class Zad10 {
             swappingState.leftTempNode = actualNode;
 
         swappingState = swapNodesHelper(actualNode.next, temps, swappingState);
-
         // after reaching max
-        if (swappingState.iteratorMax - swappingState.iterator + 1 == swappingState.k) {
-            swappingState.rightTempNode = actualNode;
-        }
-        if (swappingState.iteratorMax - swappingState.iterator == swappingState.k) {
-            actualNode.next = swappingState.leftTempNode;
-        }
-        if (swappingState.iterator == swappingState.k - 1) {
-            actualNode.next = swappingState.rightTempNode;
-            ListNode tempNode = swappingState.rightTempNode.next;
-            swappingState.rightTempNode.next = swappingState.leftTempNode.next;
-            swappingState.leftTempNode.next = tempNode;
+        // case where Nodelist has only two nodes
+        // case where k is median in Nodelist with odd number of nodes
+        if (swappingState.iteratorMax % 2 != 0 && swappingState.k == swappingState.iteratorMax / 2 + 1) {
+            return swappingState;
+        } else {
+            if (swappingState.iteratorMax - swappingState.iterator + 1 == swappingState.k) {
+                swappingState.rightTempNode = actualNode;
+            }
+            if (swappingState.iteratorMax - swappingState.iterator == swappingState.k) {
+                actualNode.next = swappingState.leftTempNode;
+            }
+            if (swappingState.iterator == swappingState.k - 1) {
+                actualNode.next = swappingState.rightTempNode;
+                ListNode tempNode = swappingState.rightTempNode.next;
+                swappingState.rightTempNode.next = swappingState.leftTempNode.next;
+                swappingState.leftTempNode.next = tempNode;
+            }
         }
         swappingState.iterator--;
         return swappingState;
