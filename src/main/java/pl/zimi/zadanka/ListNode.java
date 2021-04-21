@@ -1,7 +1,7 @@
 package pl.zimi.zadanka;
 
 public class ListNode {
-    int val;
+    Integer val;
     ListNode next;
 
     ListNode() {

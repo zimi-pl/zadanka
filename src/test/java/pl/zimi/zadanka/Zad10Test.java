@@ -3,30 +3,28 @@ package pl.zimi.zadanka;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.*;
 
 public class Zad10Test {
-    public ListNode revokeCreateListNode(Integer [] inputNodesList) {
+    public ListNode revokeCreateListNode(ArrayList inputNodesList) {
         ListNode listNode = new ListNode(0);
         listNode = createListNode(inputNodesList, listNode, 0);
         return listNode;
 
     }
 
-    public ListNode createListNode(Integer [] inputNodesList, ListNode listNode, int i) {
-        if (inputNodesList.length == 0) {
+    public ListNode createListNode(ArrayList<Integer> inputNodesList, ListNode listNode, int i) {
+        if (inputNodesList.size() == 0) {
             return null;
         }
-        if (inputNodesList.length == 1) {
-            listNode.val = inputNodesList[i];
+        if (inputNodesList.size() == 1) {
+            listNode.val = inputNodesList.get(i);
             return listNode;
         }
-        if (i != inputNodesList.length - 1) {
-            listNode.val = inputNodesList[i];
+        if (i != inputNodesList.size() - 1) {
+            listNode.val = inputNodesList.get(i);
             i++;
-            listNode.next = createListNode(inputNodesList, new ListNode(inputNodesList[i]), i);
+            listNode.next = createListNode(inputNodesList, new ListNode(inputNodesList.get(i)), i);
         }
         return listNode;
     }
@@ -43,22 +41,83 @@ public class Zad10Test {
         return listToOutput;
     }
 
-    public ArrayList<Integer> ListNodeToArray(ListNode listNode) {
-        ArrayList<Integer> array = new ArrayList<>();
+    public Integer[] listNodeToArray(ListNode listNode) {
+        List<Integer> arrayList = new ArrayList<>();
         ListNode tempListNode = listNode;
         while (tempListNode != null) {
-            array.add(tempListNode.val);
+            arrayList.add(tempListNode.val);
             tempListNode = tempListNode.next;
         }
+        Integer[] array = new Integer[arrayList.size()];
+        array = arrayList.toArray(array);
         return array;
     }
 
     @Test
     public void firstExample() {
         Zad10 obj = new Zad10();
-        Integer inputArray[]= {1,2,3,4,5,6,7};
-        ListNode listNodeInput = revokeCreateListNode(inputArray);
-        obj.swapNodes(listNodeInput,2);
-        Assertions.assertArrayEquals(new Integer[]{0}, new Integer []{0});
+        ArrayList<Integer> inputArrayList =
+                new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+        Integer[] expectedResultArray = {1, 6, 3, 4, 5, 2, 7};
+
+        ListNode listNodeInput = revokeCreateListNode(inputArrayList);
+        obj.swapNodes(listNodeInput, 2);
+
+        Assertions.assertArrayEquals(
+                expectedResultArray, listNodeToArray(listNodeInput));
+    }
+
+    @Test
+    public void threeNodesExample() {
+        Zad10 obj = new Zad10();
+        ArrayList<Integer> inputArrayList =
+                new ArrayList<>(Arrays.asList(1, 2, 3));
+        Integer[] expectedResultArray = {1, 2, 3};
+
+        ListNode listNodeInput = revokeCreateListNode(inputArrayList);
+        obj.swapNodes(listNodeInput, 2);
+
+        Assertions.assertArrayEquals(
+                expectedResultArray, listNodeToArray(listNodeInput));
+    }
+    @Test
+    public void threeNodesK1Example() {
+        Zad10 obj = new Zad10();
+        ArrayList<Integer> inputArrayList =
+                new ArrayList<>(Arrays.asList(1, 2, 3));
+        Integer[] expectedResultArray = {3, 2, 1};
+
+        ListNode listNodeInput = revokeCreateListNode(inputArrayList);
+        obj.swapNodes(listNodeInput, 1);
+
+        Assertions.assertArrayEquals(
+                expectedResultArray, listNodeToArray(listNodeInput));
+    }
+
+    @Test
+    public void twoNodesExample() {
+        Zad10 obj = new Zad10();
+        ArrayList<Integer> inputArrayList =
+                new ArrayList<>(Arrays.asList(1, 2));
+        Integer[] expectedResultArray = {2, 1};
+
+        ListNode listNodeInput = revokeCreateListNode(inputArrayList);
+        obj.swapNodes(listNodeInput, 1);
+
+        Assertions.assertArrayEquals(
+                expectedResultArray, listNodeToArray(listNodeInput));
+    }
+    @Test
+    public void nextExample() {
+        Zad10 obj = new Zad10();
+        ArrayList<Integer> inputArrayList =
+                new ArrayList<>(Arrays.asList(100, 90));
+        Integer[] expectedResultArray = {90, 100};
+
+        ListNode listNodeInput = revokeCreateListNode(inputArrayList);
+        obj.swapNodes(listNodeInput, 2);
+
+        Assertions.assertArrayEquals(
+                expectedResultArray, listNodeToArray(listNodeInput));
     }
 }
