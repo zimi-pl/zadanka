@@ -8,6 +8,8 @@ public class Zad13Test {
     void dummyTest() {
         Zad13 zad13 = new Zad13();
         zad13.fizzBuzz(16);
+        zad13.fizzBuzzHashMap(16);
+
         Assertions.assertEquals(1, 1);
     }
 }
