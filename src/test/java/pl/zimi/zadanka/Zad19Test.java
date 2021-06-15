@@ -39,4 +39,15 @@ public class Zad19Test {
         Assertions.assertEquals(expectedResult, object.subsets(new int[]{1}));
     }
 
+    @Test
+    void subsetFromBinarySorted() {
+        Zad19 object = new Zad19();
+        List<List<Integer>> expectedResult = new ArrayList<>();
+        expectedResult.add(new ArrayList<>());
+        expectedResult.add(new ArrayList<>(Arrays.asList(1)));
+        Assertions.assertEquals(
+                expectedResult,
+                object.subsetsBinarySorted(new int[]{1,2}));
+    }
+
 }
