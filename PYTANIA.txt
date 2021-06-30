@@ -1,0 +1,11 @@
+Pytanie o int i Integer
+boxing i unboxing
+
+ elements.removeIf(n->n.contains(""));
+  elements =  Arrays.asList(splitedS); // nie dział remove
+  elements = new ArrayList <String>(Arrays.asList(splitedS)); // działa remove
+         String whitespace = "good";
+ //        ??? czemu nie działa contains
+ //        elements.removeIf(n->n.contains(""));
+         elements.remove("good");
+ //        elements.removeAll(Collections.singleton("good"));f
