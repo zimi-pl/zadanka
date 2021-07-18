@@ -6,8 +6,6 @@ import java.util.*;
 public class Zad31 {
     public String customSortString(String order, String str) {
         Map<Integer, Character> orderDictionary = new HashMap<>();
-        Character leftElement = null;
-        Character rightElement = null;
         Map<Character, Integer> populationList = new HashMap<>();
         for (int i = 0; i < order.length(); i++) {
             orderDictionary.put(i, order.charAt(i));
@@ -27,19 +25,32 @@ public class Zad31 {
         String result = "";
         for (int i = 0; i < orderDictionary.size(); i++) {
             Character temp = orderDictionary.get(i);
-            if (populationList.containsKey(temp))
-            {
+            if (populationList.containsKey(temp)) {
                 for (int j = 0; j < populationList.get(temp); j++) {
                     result += temp;
                 }
             }
         }
-        result+=rest;
-        System.out.println("result = " + result);
-//        for (var entry : orderDictionary.entrySet()) {
-//            System.out.println(entry.getKey() + "/" + entry.getValue());
-//        }
-
+        result += rest;
         return result;
+    }
+
+    public String customSortStringLeetCode(String S, String T) {
+        int[] count = new int[26];
+        for (char c : T.toCharArray()) {
+            ++count[c - 'a'];
+        }  // count each char in T.
+        StringBuilder sb = new StringBuilder();
+        for (char c : S.toCharArray()) {
+            while (count[c - 'a']-- > 0) {
+                sb.append(c);
+            }    // sort chars both in T and S by the order of S.
+        }
+        for (char c = 'a'; c <= 'z'; ++c) {
+            while (count[c - 'a']-- > 0) {
+                sb.append(c);
+            }    // group chars in T but not in S.
+        }
+        return sb.toString();
     }
 }
